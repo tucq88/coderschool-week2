@@ -11,6 +11,8 @@
 // about supported directives.
 //
 //= require jquery
+//= require video
+//= require ui.min
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
