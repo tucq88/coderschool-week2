@@ -9,6 +9,27 @@
   </head>
 
   <body>
-    <%= yield %>
+
+    <nav class="navbar navbar-inverse navbar-embossed navbar-sitemenu" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-03">
+            <span class="sr-only">Toggle navigation</span>
+          </button>
+          <a class="navbar-brand" href="#">GauCHAT</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse-03">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#fakelink">Login</a></li>
+            <li><a href="#fakelink">Sign Up</a></li>
+           </ul>
+        </div><!-- /.navbar-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+      <%= yield %>
+    </div>
+
   </body>
 </html>
