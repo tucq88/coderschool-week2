@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   delete 'logout' => 'session#destroy'
 
   get 'signup' => 'users#new'
-  post 'signup' => 'users#store'
+  post 'signup' => 'users#create'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

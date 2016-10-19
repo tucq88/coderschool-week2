@@ -20,18 +20,31 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse-03">
           <ul class="nav navbar-nav">
+
+            <!-- Logged-in -->
+
+            <!-- Logged-out -->
             <li class="<%= current_page?(login_path) ? 'active' : '' %>">
               <%= link_to 'Login', 'login'  %>
             </li>
             <li class="<%= current_page?(signup_path) ? 'active' : '' %>">
               <%= link_to 'Sign Up', 'signup'  %>
             </li>
+
            </ul>
         </div><!-- /.navbar-collapse -->
       </div>
     </nav>
 
     <div class="container">
+
+      <!-- Display flash -->
+      <% flash.each do |key, value| %>
+        <div class="alert">
+          <%= value %>
+        </div>
+      <% end %>
+
       <%= yield %>
     </div>
 
