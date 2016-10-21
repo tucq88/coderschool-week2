@@ -38,12 +38,7 @@
 
     <div class="container">
 
-      <!-- Display flash -->
-      <% flash.each do |key, value| %>
-        <div class="alert">
-          <%= value %>
-        </div>
-      <% end %>
+      <%= flash_messages %>
 
       <%= yield %>
     </div>
