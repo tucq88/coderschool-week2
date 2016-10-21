@@ -2,7 +2,7 @@ class HomeController < ApplicationController
   helper ApplicationHelper
 
   def index
-    render session[:user_id] ? 'auth' : 'public'
+    render helpers.current_user ? 'auth' : 'public'
   end
 
   def public
