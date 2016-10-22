@@ -1,1 +1,41 @@
-<h1>Logged in already !!!</h1>
+<h3>Welcome to GauCHAT</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae eum architecto cum dolor
+animi saepe, nesciunt numquam velit mollitia, recusandae corporis in, quo voluptate optio dicta
+porro voluptas sequi, earum. Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br>
+Molestiae eum architecto cum dolor animi saepe, nesciunt numquam velit mollitia, recusandae corporis
+in, quo voluptate optio dicta porro voluptas sequi, earum.</p>
+
+<hr>
+
+<!-- Buttons -->
+<p class="text-right">
+  <%= link_to 'New Message', '#', class: "btn btn-primary"  %>
+  &nbsp;
+  <%= link_to 'Add Friends', '#', class: "btn btn-primary"  %>
+</p>
+
+<!-- Incoming messages -->
+<div class="panel panel-primary">
+  <div class="panel-heading">Unread messages</div>
+  <div class="panel-body">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Sender</th>
+          <th>Send at</th>
+          <th>Read at</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @messages.each do |message| %>
+          <tr class="<%= message.is_read ? "" : "warning" %>">
+            <td><%= message.sender.email %></td>
+            <td><%= message.created_at.to_formatted_s(:long_ordinal) %></td>
+            <td><%= message.read_info %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+

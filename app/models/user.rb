@@ -3,10 +3,10 @@ class User < ApplicationRecord
   has_secure_password
 
   def sent_messages
-
+    Message.where(sender: self)
   end
 
   def received_messages
-
+    Message.where(recipient: self)
   end
 end

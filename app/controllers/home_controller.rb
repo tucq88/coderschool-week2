@@ -2,7 +2,15 @@ class HomeController < ApplicationController
   helper ApplicationHelper
 
   def index
-    render current_user ? 'auth' : 'public'
+    if current_user
+
+      @messages = current_user.received_messages
+
+      console
+      render 'auth'
+    else
+      render 'public'
+    end
   end
 
   def public
