@@ -9,4 +9,8 @@ class User < ApplicationRecord
   def received_messages
     Message.where(recipient: self)
   end
+
+  def recent_messages(n = 10)
+    received_messages.order(created_at: :desc).limit(n)
+  end
 end

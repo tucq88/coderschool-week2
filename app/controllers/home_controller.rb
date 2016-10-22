@@ -4,9 +4,8 @@ class HomeController < ApplicationController
   def index
     if current_user
 
-      @messages = current_user.received_messages
+      @messages = current_user.recent_messages
 
-      console
       render 'auth'
     else
       render 'public'
