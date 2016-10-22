@@ -1,0 +1,1 @@
+- How does this works `belongs_to :recipient, class_name: 'User'` and `where(recipient: self)` ?
