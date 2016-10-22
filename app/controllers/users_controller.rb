@@ -19,6 +19,11 @@ class UsersController < ApplicationController
     end
   end
 
+  # list of users
+  def index
+    @users = User.where.not(id: current_user.id)
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
