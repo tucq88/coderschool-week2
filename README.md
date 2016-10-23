@@ -4,7 +4,7 @@
 
 Submitted by: **Tu Chu Quang**
 
-Time spent: **0** hours
+Time spent: **18** hours
 
 URL: [**https://gauchat.herokuapp.com**](https://gauchat.herokuapp.com/)
 

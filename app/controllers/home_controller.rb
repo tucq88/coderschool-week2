@@ -4,6 +4,7 @@ class HomeController < ApplicationController
     if current_user
 
       @messages = current_user.recent_messages
+      @new_users = current_user.recent_non_friends
 
       render 'auth'
     else

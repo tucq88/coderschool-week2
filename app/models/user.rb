@@ -23,5 +23,13 @@ class User < ApplicationRecord
     Friendship.where(user_id: id, friend_id: self.id).first
   end
 
+  def non_friends
+    User.where.not(id: friend_ids).where.not(id: self.id)
+  end
+
+  def recent_non_friends(n = 10)
+    User.where.not(id: friend_ids).where.not(id: self.id).order(created_at: :desc).limit(n)
+  end
+
 
 end

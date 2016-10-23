@@ -16,7 +16,7 @@ in, quo voluptate optio dicta porro voluptas sequi, earum.</p>
   <%= link_to 'Sent Messages', messages_sent_path, class: "btn btn-warning" %>
 </p>
 
-<!-- Incoming messages -->
+<!-- Recently messages -->
 <div class="panel panel-primary">
   <div class="panel-heading">Recently messages</div>
   <div class="panel-body">
@@ -39,6 +39,35 @@ in, quo voluptate optio dicta porro voluptas sequi, earum.</p>
               <% if !message.is_read %>
                 <%= link_to 'Show', message, class: "btn btn-info btn-sm" %>
               <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Recently users -->
+<div class="panel panel-primary">
+  <div class="panel-heading">Recently registered users</div>
+  <div class="panel-body">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Email</th>
+          <th>Registered at</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @new_users.each do |user| %>
+          <tr>
+            <td><%= user.email %></td>
+            <td><%= user.created_at.to_formatted_s(:long_ordinal) %></td>
+            <td>
+              <%= link_to "Add Friend", friendships_path(:friend_id => user),
+                method: "post",
+                class: "btn btn-info btn-sm" %>
             </td>
           </tr>
         <% end %>
