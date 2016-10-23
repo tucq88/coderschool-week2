@@ -1,9 +1,25 @@
 class MessagesController < ApplicationController
+  before_action :require_user!
+
   def index
     redirect_to root_path
   end
 
   def show
+    @message = Message.find(params[:id])
+
+    if current_user.id != @message.recipient_id
+      flash[:error] = "Sorry, you're not allow to read this"
+      redirect_to root_path
+    else
+      if @message.read_at == nil
+        @message.read_at = Time.now
+        @message.save
+      else
+        flash[:notice] = 'You already read this message at ' + @message.read_at.to_formatted_s(:long_ordinal)
+        redirect_to root_path
+      end
+    end
   end
 
   def new

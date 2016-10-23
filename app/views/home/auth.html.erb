@@ -26,6 +26,7 @@ in, quo voluptate optio dicta porro voluptas sequi, earum.</p>
           <th>Sender</th>
           <th>Send at</th>
           <th>Read at</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -34,6 +35,11 @@ in, quo voluptate optio dicta porro voluptas sequi, earum.</p>
             <td><%= message.sender.email %></td>
             <td><%= message.created_at.to_formatted_s(:long_ordinal) %></td>
             <td><%= message.read_info %></td>
+            <td>
+              <% if !message.is_read %>
+                <%= link_to 'Show', message, class: "btn btn-info btn-sm" %>
+              <% end %>
+            </td>
           </tr>
         <% end %>
       </tbody>

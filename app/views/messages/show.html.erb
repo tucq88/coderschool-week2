@@ -1,0 +1,21 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">Message Detail</div>
+  <div class="panel-body">
+    <table class="table table-bordered">
+      <tr>
+        <td class="text-uppercase"><strong>Sender</strong></td>
+        <td><%= @message.sender.email %></td>
+      </tr>
+      <tr>
+        <td class="text-uppercase"><strong>Sent at</strong></td>
+        <td><%= @message.created_at.to_formatted_s(:long_ordinal) %></td>
+      </tr>
+    </table>
+
+    <hr>
+    <div><%= @message.body %></div>
+
+    <br>
+
+  </div>
+</div>
