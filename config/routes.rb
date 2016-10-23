@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   post 'friendships' => 'friendships#create'
   delete 'friendships/:id' => 'friendships#destroy'
 
+  resources :messages
+
 end

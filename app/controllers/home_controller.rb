@@ -1,5 +1,4 @@
 class HomeController < ApplicationController
-  helper ApplicationHelper
 
   def index
     if current_user

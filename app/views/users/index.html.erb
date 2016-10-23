@@ -14,8 +14,8 @@
             <% @users.each do |user| %>
               <tr>
                 <td><%= user.email %></td>
-                <td><%= user.created_at %></td>
-                <td><%= user.id %></td>
+                <td><%= user.created_at.to_formatted_s(:long_ordinal) %></td>
+                <td><%= user.friends.count %></td>
                 <td>
                   <% if user.is_friend(current_user.id) == nil %>
                     <%= link_to "Add Friend", friendships_path(:friend_id => user),

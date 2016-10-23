@@ -1,0 +1,35 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">New Message</div>
+  <div class="panel-body">
+
+    <% if @message.errors.any? %>
+      <div class="alert alert-danger">
+        <h4>Error: Invalid data. Check your inputs.</h4>
+        <ul>
+          <% @message.errors.full_messages.each do |thing| %>
+            <li><%= thing %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= form_for @message do |f| %>
+      <div class="form-group">
+        <label for="message_recipient">Recipient</label>
+        <%= f.collection_select(:recipient_id, @friends, :id, :email,
+          {:include_blank => 'Select friend as recipient...'},
+          {:class => 'form-control'}) %>
+      </div>
+
+      <div class="form-group">
+        <label for="message_body">Body</label>
+        <%= f.text_area :body, class: "form-control", id: "message_body" %>
+      </div>
+
+      <div class="form-group form-actions text-center">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    <% end %>
+
+  </div>
+</div>
