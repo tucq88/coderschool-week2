@@ -1,0 +1,23 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">Sent messages</div>
+  <div class="panel-body">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Recipient</th>
+          <th>Send at</th>
+          <th>Read at</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @messages.each do |message| %>
+          <tr class="<%= message.is_read ? "" : "warning" %>">
+            <td><%= message.recipient.email %></td>
+            <td><%= message.created_at.to_formatted_s(:long_ordinal) %></td>
+            <td><%= message.read_info %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

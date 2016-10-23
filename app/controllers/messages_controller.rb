@@ -39,7 +39,14 @@ class MessagesController < ApplicationController
       flash[:error] = 'Unable to save message.'
       render 'new'
     end
+  end
 
+  def sent
+    @messages = current_user.sent_messages.order(created_at: :desc)
+  end
+
+  def recieved
+    @messages = current_user.recieved_messages.order(created_at: :desc)
   end
 
   private
