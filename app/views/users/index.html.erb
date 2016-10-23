@@ -17,7 +17,15 @@
                 <td><%= user.created_at %></td>
                 <td><%= user.id %></td>
                 <td>
-                  <%= link_to 'Add Friend', '#', class: "btn btn-info btn-sm"  %>
+                  <% if user.is_friend(current_user.id) == nil %>
+                    <%= link_to "Add Friend", friendships_path(:friend_id => user),
+                      method: "post",
+                      class: "btn btn-info btn-sm" %>
+                  <% else %>
+                    <%= link_to "Remvove Friend", 'friendships/' + user.is_friend(current_user.id).id.to_s,
+                      method: "delete",
+                      class: "btn btn-danger btn-sm" %>
+                  <% end %>
                 </td>
               </tr>
             <% end %>

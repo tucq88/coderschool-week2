@@ -9,4 +9,8 @@ Rails.application.routes.draw do
   post 'signup' => 'users#create'
 
   get 'users' => 'users#index'
+
+  post 'friendships' => 'friendships#create'
+  delete 'friendships/:id' => 'friendships#destroy'
+
 end
